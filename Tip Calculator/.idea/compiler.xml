@@ -10,8 +10,8 @@
       <entry name="!?*.groovy" />
       <entry name="!?*.scala" />
       <entry name="!?*.flex" />
-      <entry name="!?*.kt" />
       <entry name="!?*.clj" />
+      <entry name="!?*.kt" />
     </wildcardResourcePatterns>
     <annotationProcessing>
       <profile default="true" name="Default" enabled="false">
