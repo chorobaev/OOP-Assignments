@@ -1,9 +1,3 @@
-<<<<<<< HEAD
 **/*.iml
 **/.idea
-
-=======
-*.iml
-/*/.idea
-/BMICalculator/BMICalculator.iml
->>>>>>> 723aa04ecb3b9a397e0cdf37fe6f8b4a718db3c8
+**/out
