@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="439.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="flaterlab.main.MainController">
+    <left>
+        <VBox maxWidth="110.0" minHeight="-Infinity" minWidth="110.0" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <TitledPane animated="false" prefWidth="100.0" text="Colors">
+                <VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="180.0" prefWidth="100.0">
+                    <RadioButton fx:id="rbColorBlack" mnemonicParsing="false" onAction="#onColorSelected" selected="true" text="Black">
+                        <VBox.margin>
+                            <Insets top="8.0" />
+                        </VBox.margin>
+                        <toggleGroup>
+                            <ToggleGroup fx:id="toggleGroupColor" />
+                        </toggleGroup>
+                    </RadioButton>
+                    <RadioButton fx:id="rbColorRed" mnemonicParsing="false" onAction="#onColorSelected" text="Red" toggleGroup="$toggleGroupColor">
+                        <VBox.margin>
+                            <Insets top="8.0" />
+                        </VBox.margin>
+                    </RadioButton>
+                    <RadioButton fx:id="rbColorGreen" mnemonicParsing="false" onAction="#onColorSelected" text="Green" toggleGroup="$toggleGroupColor">
+                        <VBox.margin>
+                            <Insets top="8.0" />
+                        </VBox.margin>
+                    </RadioButton>
+                    <RadioButton fx:id="rbColorBlue" mnemonicParsing="false" onAction="#onColorSelected" text="Blue" toggleGroup="$toggleGroupColor">
+                        <VBox.margin>
+                            <Insets top="8.0" />
+                        </VBox.margin>
+                    </RadioButton>
+                    <RadioButton fx:id="rbColorWhite" mnemonicParsing="false" onAction="#onColorSelected" text="White" toggleGroup="$toggleGroupColor">
+                        <VBox.margin>
+                            <Insets top="8.0" />
+                        </VBox.margin>
+                    </RadioButton>
+               <Button fx:id="btnPenColor" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#onColorPickerClicked" prefWidth="76.0" style="-fx-background-color: black;">
+                  <VBox.margin>
+                     <Insets top="10.0" />
+                  </VBox.margin>
+               </Button>
+                </VBox>
+            </TitledPane>
+            <TitledPane animated="false" text="Pen">
+                <VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="100.0">
+                    <RadioButton fx:id="rbSizeSmall" mnemonicParsing="false" onAction="#onPenSelected" selected="true" text="Small">
+                        <padding>
+                            <Insets top="8.0" />
+                        </padding>
+                        <toggleGroup>
+                            <ToggleGroup fx:id="toggleGroupPen" />
+                        </toggleGroup>
+                    </RadioButton>
+                    <RadioButton fx:id="rbSizeMedium" mnemonicParsing="false" onAction="#onPenSelected" text="Medium" toggleGroup="$toggleGroupPen">
+                        <padding>
+                            <Insets top="8.0" />
+                        </padding>
+                    </RadioButton>
+                    <RadioButton fx:id="rbSizeLarge" mnemonicParsing="false" onAction="#onPenSelected" text="Large" toggleGroup="$toggleGroupPen">
+                        <padding>
+                            <Insets top="8.0" />
+                        </padding>
+                    </RadioButton>
+                </VBox>
+                <VBox.margin>
+                    <Insets top="8.0" />
+                </VBox.margin>
+            </TitledPane>
+            <Button fx:id="btnUndo" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onUndo" text="Undo">
+                <VBox.margin>
+                    <Insets top="8.0" />
+                </VBox.margin>
+            </Button>
+            <Button fx:id="btnClear" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClear" text="Clear">
+                <VBox.margin>
+                    <Insets bottom="8.0" top="8.0" />
+                </VBox.margin>
+            </Button>
+            <padding>
+                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+            </padding>
+        </VBox>
+    </left>
+    <center>
+        <Pane fx:id="mainPane" onMouseDragged="#onMouseDragged" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" onMousePressed="#onMousePressed" onMouseReleased="#onMouseReleased" prefHeight="370.0" prefWidth="490.0" style="-fx-background-color: fff;" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+            <padding>
+                <Insets left="110.0" />
+            </padding>
+        </Pane>
+    </center>
+</BorderPane>
