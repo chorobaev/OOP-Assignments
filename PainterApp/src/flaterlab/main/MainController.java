@@ -142,7 +142,7 @@ public class MainController {
     private void startColorPicker() {
         FXMLLoader loader;
         try {
-            loader = new FXMLLoader(getClass().getResource("colorpicker/color_picker.fxml"));
+            loader = new FXMLLoader(getClass().getResource("../colorpicker/color_picker.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Color Picker");
             stage.setScene(new Scene(loader.load(), 470, 180));
