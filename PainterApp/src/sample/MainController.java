@@ -16,64 +16,38 @@ public class MainController {
     private static final int UNDO_SIZE = 10;
     private Double lastX = -1.0, lastY = -1.0;
     private ArrayList<Line> lines = new ArrayList<>();
+
     private final Color[] penColors = {
-            Color.BLACK,
-            Color.WHITE,
-            Color.RED,
-            Color.GREEN,
-            Color.BLUE
+            Color.BLACK, Color.WHITE, Color.RED, Color.GREEN, Color.BLUE
     };
     private Color currentPenColor = penColors[0];
+
     private final int[] penSizes = {1, 3, 5};
     private int currentPenSize = penSizes[0];
 
-    @FXML
-    private Pane mainPane;
+    private boolean isMousePressed = false;
 
-    @FXML
-    private ToggleGroup toggleGroupColor;
-
-    @FXML
-    private ToggleGroup toggleGroupPen;
-
-    @FXML
-    private RadioButton rbColorBlack;
-
-    @FXML
-    private RadioButton rbColorWhite;
-
-    @FXML
-    private RadioButton rbColorRed;
-
-    @FXML
-    private RadioButton rbColorGreen;
-
-    @FXML
-    private RadioButton rbColorBlue;
-
-    @FXML
-    private RadioButton rbSizeSmall;
-
-    @FXML
-    private RadioButton rbSizeMedium;
-
-    @FXML
-    private RadioButton rbSizeLarge;
-
-    @FXML
-    void onColorSelected(ActionEvent event) {
-        System.out.println("OnColorSelected");
-        currentPenColor = (Color) toggleGroupColor.getSelectedToggle().getUserData();
-    }
+    @FXML private Pane mainPane;
+    @FXML private ToggleGroup toggleGroupColor;
+    @FXML private ToggleGroup toggleGroupPen;
+    @FXML private RadioButton rbColorBlack;
+    @FXML private RadioButton rbColorWhite;
+    @FXML private RadioButton rbColorRed;
+    @FXML private RadioButton rbColorGreen;
+    @FXML private RadioButton rbColorBlue;
+    @FXML private RadioButton rbSizeSmall;
+    @FXML private RadioButton rbSizeMedium;
+    @FXML private RadioButton rbSizeLarge;
 
     @FXML
     void onMouseDragged(MouseEvent event) {
-        System.out.println("OnMouseDragged: " + event.getX() + ", " + event.getY());
+        //System.out.println("OnMouseDragged: " + event.getX() + ", " + event.getY());
         drawLine(event.getX(), event.getY());
     }
 
     @FXML
     void onMousePressed(MouseEvent event) {
+        isMousePressed = true;
         lastX = event.getX();
         lastY = event.getY();
     }
@@ -81,17 +55,37 @@ public class MainController {
     @FXML
     void onMouseReleased(MouseEvent event) {
         System.out.println("OnMouseReleased");
+        isMousePressed = false;
     }
 
     @FXML
     void onMouseExited(MouseEvent event) {
-        //drawLine(event.getX(), event.getY());
+        System.out.println("onMouseExited");
+    }
+
+    @FXML
+    void onMouseEntered(MouseEvent event) {
+        System.out.println("OnMouseEntered");
+        if (isMousePressed) {
+            lastX = event.getX();
+            lastY = event.getY();
+        }
+    }
+
+    @FXML
+    void onColorSelected(ActionEvent event) {
+        System.out.println("OnColorSelected");
+        try {
+            currentPenColor = penColors[(int) toggleGroupColor.getSelectedToggle().getUserData()];
+        } catch (Exception ignored) {}
     }
 
     @FXML
     void onPenSelected(ActionEvent event) {
         System.out.println("OnPenSelected");
-        currentPenSize = (int) toggleGroupPen.getSelectedToggle().getUserData();
+        try {
+            currentPenSize = penSizes[(int) toggleGroupPen.getSelectedToggle().getUserData()];
+        } catch (Exception ignored) {}
     }
 
     @FXML
@@ -115,15 +109,15 @@ public class MainController {
 
     @FXML
     void initialize() {
-        rbColorBlack.setUserData(penColors[0]);
-        rbColorWhite.setUserData(penColors[1]);
-        rbColorRed.setUserData(penColors[2]);
-        rbColorGreen.setUserData(penColors[3]);
-        rbColorBlue.setUserData(penColors[4]);
+        rbColorBlack.setUserData(0);
+        rbColorWhite.setUserData(1);
+        rbColorRed.setUserData(2);
+        rbColorGreen.setUserData(3);
+        rbColorBlue.setUserData(4);
 
-        rbSizeSmall.setUserData(penSizes[0]);
-        rbSizeMedium.setUserData(penSizes[1]);
-        rbSizeLarge.setUserData(penSizes[2]);
+        rbSizeSmall.setUserData(0);
+        rbSizeMedium.setUserData(1);
+        rbSizeLarge.setUserData(2);
     }
 
     private void drawLine(double x, double y) {

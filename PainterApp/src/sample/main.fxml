@@ -84,15 +84,15 @@
             </Button>
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClear" text="Clear">
                 <VBox.margin>
-                    <Insets top="8.0"/>
+                    <Insets top="8.0" bottom="8.0"/>
                 </VBox.margin>
             </Button>
         </VBox>
     </left>
     <center>
         <Pane fx:id="mainPane" onMouseDragged="#onMouseDragged" onMouseExited="#onMouseExited"
-              onMousePressed="#onMousePressed" onMouseReleased="#onMouseReleased" prefHeight="400.0" prefWidth="400.0"
-              BorderPane.alignment="CENTER">
+              onMousePressed="#onMousePressed" onMouseReleased="#onMouseReleased" onMouseEntered="#onMouseEntered"
+              prefHeight="400.0" prefWidth="400.0" BorderPane.alignment="CENTER">
             <BorderPane.margin>
                 <Insets/>
             </BorderPane.margin>
