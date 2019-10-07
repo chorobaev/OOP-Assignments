@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="detailAP" fx:id="apDetail" onKeyPressed="#onKeyPressed" prefHeight="310.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="flaterlab.editor.EditController">
+    <padding>
+        <Insets top="10.0" />
+    </padding>
+    <VBox prefHeight="271.0" prefWidth="400.0">
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+        </padding>
+      <HBox alignment="TOP_CENTER">
+         <children>
+            <VBox alignment="TOP_CENTER" prefWidth="80.0">
+               <HBox.margin>
+                  <Insets bottom="8.0" top="8.0" />
+               </HBox.margin>
+               <children>
+                  <ImageView fx:id="ivAvatar" accessibleRole="BUTTON" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button mnemonicParsing="false" onAction="#onChangeImage" prefWidth="80.0" text="Change">
+                     <VBox.margin>
+                        <Insets top="4.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox HBox.hgrow="ALWAYS">
+               <children>
+                    <Label text="Name">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                    <TextField id="tfName" fx:id="tfName">
+                     <VBox.margin>
+                        <Insets top="4.0" />
+                     </VBox.margin>
+                    </TextField>
+                    <Label text="Surname">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                    </Label>
+                    <TextField id="tfSurname" fx:id="tfSurname">
+                     <VBox.margin>
+                        <Insets top="4.0" />
+                     </VBox.margin>
+                    </TextField>
+               </children>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+        <Label text="Phone number">
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+        </Label>
+        <TextField id="tfPhoneNumber" fx:id="tfPhoneNumber">
+            <VBox.margin>
+                <Insets top="4.0" />
+            </VBox.margin>
+        </TextField>
+        <Label text="Email">
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+        </Label>
+        <TextField id="tfEmail" fx:id="tfEmail">
+            <VBox.margin>
+                <Insets top="4.0" />
+            </VBox.margin>
+        </TextField>
+        <HBox prefHeight="38.0" prefWidth="380.0">
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+            <Region prefHeight="62.0" prefWidth="280.0" HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#onSaveClicked" prefWidth="100.0" text="Save">
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Button>
+        </HBox>
+    </VBox>
+</AnchorPane>
